@@ -12,5 +12,4 @@ pyspotify==2.0.5
 requests==2.9.1
 schedule==0.3.2
 six==1.10.0
-spotify-ripper==2.6.10
 wheel==0.26.0
