@@ -12,7 +12,7 @@ from django.template.defaultfilters import slugify
 from django.http import JsonResponse
 from django.core import serializers
 import json
-
+import requests
 
 def index(request):
     lista_bares = Bar.objects.order_by('nombre')
