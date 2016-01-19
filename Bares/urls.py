@@ -1,8 +1,6 @@
 from django.conf.urls import patterns, url
 from Bares import views
 from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = patterns('',
@@ -20,17 +18,9 @@ urlpatterns = patterns('',
        
 #        url(r'^add_tapa/(?P<bar_name_slug>\w+)$', views.add_tapa, name='add_tapa'),               
         )
-
-
-if not settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += patterns('', (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),)
-
 if settings.DEBUG:
     urlpatterns += patterns(
         'django.views.static',
         (r'^media/(?P<path>.*)',
         'serve',
         {'document_root': settings.MEDIA_ROOT}), )
-
