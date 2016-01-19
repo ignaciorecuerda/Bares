@@ -18,6 +18,9 @@ from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from Bares import views
 from django.conf import settings
+from django.conf.urls.static import static # New Import
+from registration.backends.simple.views import RegistrationView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     # Examples:
@@ -29,15 +32,21 @@ urlpatterns = [
 ]
 
 
+if not settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += patterns('',(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),)
+
 if settings.DEBUG:
     urlpatterns += patterns(
         'django.views.static',
         (r'media/(?P<path>.*)',
         'serve',
         {'document_root': settings.MEDIA_ROOT}), )
-else:
-    urlpatterns += patterns('', url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_PATH}),
-    )
+# else:
+#     urlpatterns += patterns('', url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_PATH}),
+#     )
 
 
 # urlpatterns += patterns('django.views.static', (r'^media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}), )
