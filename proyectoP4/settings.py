@@ -38,7 +38,7 @@ SECRET_KEY = 'xktx+k_1llus5yg)f4$c_5e77m%cxmao0-qjxz$(kyo@ljiapg'
 DEBUG = False
     #para heroku
 
- ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
