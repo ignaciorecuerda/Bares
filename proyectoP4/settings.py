@@ -36,7 +36,7 @@ SECRET_KEY = 'xktx+k_1llus5yg)f4$c_5e77m%cxmao0-qjxz$(kyo@ljiapg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
+    #para heroku
 
  ALLOWED_HOSTS = ['*']
 
