@@ -21,7 +21,8 @@ STATIC_PATH = os.path.join(BASE_DIR,'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #para heroku
 
 STATICFILES_DIRS = (
     STATIC_PATH,
@@ -36,6 +37,9 @@ SECRET_KEY = 'xktx+k_1llus5yg)f4$c_5e77m%cxmao0-qjxz$(kyo@ljiapg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+TEMPLATE_DEBUG = True
+
+
     #para heroku
 
 ALLOWED_HOSTS = ['*']
