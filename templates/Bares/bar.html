@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %} 
+    {% if bar %}
+        {{ bar.nombre }} 
+    {% else %}
+        nada
+    {% endif %}
+{% endblock %}
+
+{% block ListaBares %}
+
+	{% if bares %}
+		{% for bar in bares %}
+			<li><a href="/Bares/bar/{{ bar.slug }}"> {{ bar.nombre }}</a></li>
+		{% endfor %}
+	{% else %}
+		<strong>No hay bares.</strong>
+	{% endif %}
+
+{% endblock %}
+
+{% block Cuerpo %}
+	<h1 class="page-header">{{ bar.nombre }}</h1>
+
+	<div class="row placeholders">
+		<div class="col-xs-6 col-sm-3 placeholder">
+            <img src="/static/Bares/logos/building.jpg" class="img-responsive" alt="Generic placeholder thumbnail" height="200" width="200">
+<!--            <img src="/media/media/elpesaor.jpeg" class="img-responsive" alt="Generic placeholder thumbnail" height="200" width="200">-->
+            <h4>{{ bar.nombre }}</h4>
+            <span class="text-muted">{{bar.lema}}</span>
+            <br/>
+            <span class="text-muted">Visitas: {{bar.visitas}}</span>
+		</div>
+		<p>
+		{{ bar.descripcion }}
+		</p>
+	
+<!--
+	</div>
+	<h2 class="sub-header">Información de interés</h2>
+	<h3 class="sub-header">Precios</h3>
+	<div>
+-->
+        <p>REFRESCO A <strong>{{bar.precio_refresco}}</strong></p>
+        <p>CERVEZA  A <strong>{{bar.precio_cerveza}}</strong></p>
+        <p>CUBATA   A <strong>{{bar.precio_cubata}}</strong></p>
+        
+        
+        
+        {% load easy_maps_tags %}
+        {#% easy_map "Russia, Ekaterinburg, Mira 32" 300 400 %#}
+
+</div>
+	<h3 class="sub-header">Lista de tapas</h3>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripción</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if tapas %}
+    				{% for tapa in tapas %}
+        				<tr>
+            				<td>{{tapa.titulo}}</td>
+            				<td>{{tapa.descripcion}}</td>
+                            <td><button class="btn btn-default btn-xs" onclick="meGustalaTapa('{{tapa.titulo}}','{{bar.slug}}')"> MeGusta ({{tapa.megustas}})</button></td>
+        				</tr>
+    				{% endfor %}
+			    {% else %}
+			        <strong>No hay tapas que mostrar.</strong>
+			    {% endif %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{% block misScripts %}
+    <script>
+        function meGustalaTapa(titulo, bar){
+            $.ajax({
+                url: '/Bares/megusta_tapa/',
+                type: 'get',
+                data: {'titulo': titulo, 'bar':bar},
+                success: function(data) {
+                    location.reload(true);
+                },
+                failure: function(data) { 
+                    alert('esto no vá');
+                }
+            }); 
+        }
+    </script>
+{% endblock %}

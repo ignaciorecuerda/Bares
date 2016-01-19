@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Inicio
+{% endblock %}
+
+{% block ListaBares %}
+
+	{% if bares %}
+		{% for bar in bares %}
+			<li><a href="/Bares/bar/{{ bar.slug }}"> {{ bar.nombre }}</a></li>
+		{% endfor %}
+	{% else %}
+		<strong>No hay bares.</strong>
+	{% endif %}
+
+{% endblock %}
+
+{% block Cuerpo %}
+	<h1 class="page-header">Página principal BarChecker</h1>
+
+	<div class="row placeholders">
+        <img src="/static/Bares/images/background.jpg" alt="barchecker Granada" />        
+
+{% endblock %}
+        
+        
+        

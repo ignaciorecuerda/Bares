@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Lofin{% endblock %}
+
+{% block Cuerpo %}
+<div class="hero-unit">
+    <h1>Login BarChecker</h1>
+
+    <div class="container">
+        <form class="form-signin span4" id="login_form" method="post" action="/Bares/login/">
+            <h2 class="form-signin-heading">Introducir los datos de establecimiento registrado</h2>
+            {% if bad_details %}
+                <p><strong>No ha introducido correctamente el usuario o la contraseña!</strong></p>
+            {% elif disabled_account %}
+                <p><strong>Su cuenta está ahora deshabilitada. Acceso denegado a BarChecker</strong></p>
+            {% endif %}
+
+
+            {% csrf_token %}
+            Nombre: <input type="text" class="input-block-level" placeholder="Teclee el nombre del establecimiento" name="username" value=""
+                             size="50"/>
+            <br/><br/>
+            Contraseña: <input type="password" class="input-block-level" placeholder="Teclee su contraseña" name="password" value=""
+                             size="50"/>
+            <br/><br/>
+
+            <button class="btn btn-primary" type="submit">Entrar</button>
+        </form>
+
+
+    </div>
+    <!-- /container -->
+
+</div>
+
+
+{% endblock %}

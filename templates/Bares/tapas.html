@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Tapas{% endblock %}
+
+
+
+
+{% block Cuerpo %}
+<div class="hero-unit">
+    <h1>esta en el bar TAL</h1>
+    {% if tapas %}
+        {% for tapa in tapas %}
+            <p>{{tapa.titulo}}</p>
+        {% endfor %}
+    {% else %}
+        <strong>No hay tapas.</strong>
+    {% endif %}    
+    <div class="container">
+        
+
+
+    </div>
+    <!-- /container -->
+
+</div>
+
+
+{% endblock %}
