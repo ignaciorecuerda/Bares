@@ -1,5 +1,5 @@
 from django.test import TestCase
-from rango.models import Tapa, Bar, UserProfile
+from Bares.models import Tapa, Bar, UserProfile
 from django.test import Client
 
 
