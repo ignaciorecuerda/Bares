@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 	
 	url(r'^admin/', include(admin.site.urls)),
-    url(r'^Bares/', include('Bares.urls')), # ADD THIS NEW TUPLE!media/(?P<path>.*)
+	url(r'^Bares/', include('Bares.urls')),
 	url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
 	url(r'^accounts/', include('registration.backends.simple.urls')),
 )
