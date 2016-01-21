@@ -28,4 +28,4 @@ RUN sudo apt-get update
 RUN	sudo apt-get install -y python-dev
 RUN	sudo apt-get install -y python-pip
 RUN	sudo pip install --upgrade pip
-RUN	sudo pip install -r requirements.txt
+RUN	cd Bares && sudo pip install -r requirements.txt
