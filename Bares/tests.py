@@ -18,6 +18,6 @@ class BarTestCase(TestCase):
 		self.assertEqual(response.status_code, 200)
 		
 	def test_login(self):
-		response = self.client.get('/rango/login/')
+		response = self.client.get('/Bares/login/')
 		self.assertEqual(response.status_code, 200)
 
