@@ -11,8 +11,8 @@ test:
 run:
 	gunicorn proyectoP4.wsgi --log-file -
 	
-#docker: 
-	#sudo apt-get update
-	#sudo apt-get install -y docker.io
-	#sudo docker pull pedrogazquez/appBares
-	#sudo docker run -t -i pedrogazquez/appBares /bin/bash
+docker: 
+	sudo apt-get update
+	sudo apt-get install -y docker.io
+	sudo docker pull apozo/bares
+	sudo docker run -t -i apozo/bares /bin/bash
