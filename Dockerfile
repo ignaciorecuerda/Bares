@@ -24,4 +24,8 @@ RUN sudo easy_install Pillow
 RUN sudo pip install --upgrade pip
 
 #Instalar app
-RUN make install
+RUN sudo apt-get update
+RUN	sudo apt-get install -y python-dev
+RUN	sudo apt-get install -y python-pip
+RUN	sudo pip install --upgrade pip
+RUN	sudo pip install -r requirements.txt
