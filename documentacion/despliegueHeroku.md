@@ -27,4 +27,4 @@ urlpatterns += patterns('',
 ```
 **Nota:** Para un funcionamiento óptimo de la aplicación, el contenido estático de la misma no debería ser servido por Django, sino por el propio servidor. Sin embargo, la pérdida de rendimiento en este momento la considero irrelevante. 
 
-Puede ver la aplicación funcionando [aquí](hhtp://www.apozo-bc.herokuapp.com/Bares/).
+Puede ver la aplicación funcionando [apozo-bc](www.apozo-bc.herokuapp.com/Bares/)..
